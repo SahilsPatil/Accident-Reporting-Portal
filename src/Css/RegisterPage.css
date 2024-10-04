@@ -1,0 +1,22 @@
+
+.loginpage_login{
+    padding-top:100px ;
+}
+
+.loginpage_login_form_name{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+    margin-bottom: 15px;
+}
+.loginpage_login_form_name input{
+    width: 195px;
+}
+
+.loginpage_login_form_submit{
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}

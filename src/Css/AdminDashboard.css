@@ -1,0 +1,90 @@
+.dash {
+    background-color: #1B1C31;
+    width: 100vw;
+    height: auto;
+}
+
+.dash_rows {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.dash_rows_side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 100vh;
+    padding: 30px 20px;
+
+    background: #2B2C45;
+    color: white;
+
+    font-family: THICCCBOI;
+    width: 80px;
+    transition: 0.5s;
+}
+
+.dash_rows_side:hover {
+    width: 190px;
+    transition: 0.5s;
+}
+
+.dash_rows_side:hover .dash_rows_side_menu span,
+.dash_rows_side:hover .dash_rows_side_logout span {
+    display: block;
+}
+
+.dash_rows_side_menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+.dash_rows_side_menu div {
+    overflow: hidden;
+    padding: 20px 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.dash_rows_side_logout div {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.dash_rows_side_menu img,
+.dash_rows_side_logout img {
+    padding: 0px 20px;
+    cursor: pointer;
+}
+
+.dash_rows_side_menu span,
+.dash_rows_side_logout span {
+    display: none;
+    cursor: pointer;
+}
+
+
+.mid {
+    height: 100vh;
+    overflow-x: scroll;
+    scroll-padding: 0;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style:scrollbar;
+}
+
+.mid_head {
+    height: 1000px;
+    color: white;
+    font-size: 100px !important;
+}

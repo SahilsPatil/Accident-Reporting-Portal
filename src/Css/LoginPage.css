@@ -1,0 +1,95 @@
+.loginpage {
+    position: relative;
+    background: #1B1C31;
+    height: 100vh;
+}
+
+.loginpage_login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    height: 90vh;
+}
+
+.loginpage_login_head {
+    font-size: 28px;
+    color: rgb(255, 255, 255);
+    font-family: THICCCBOI;
+    font-size: 28px;
+    font-weight: 800px;
+}
+
+.loginpage_login_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.loginpage_login_form_role,
+.loginpage_login_form_email,
+.loginpage_login_form_password,
+.loginpage_login_form_submit {
+    margin: 15px 0px;
+}
+
+.loginpage_login_form_role label {
+    color: white;
+    font-size: 18px;
+    font-family: THICCCBOI;
+}
+
+.loginpage_login_form_role select {
+    width: 400px;
+    padding: 10px 15px;
+    border-radius: 7px;
+    outline: none;
+    border: none;
+    background-color: #313245;
+    color: #B0BCD0;
+    font-family: THICCCBOI;
+}
+
+.loginpage_login_form input {
+    width: 400px;
+    padding: 10px 15px;
+    border-radius: 7px;
+    outline: none;
+    border: none;
+    background: #313245;
+    color: #B0BCD0;
+    font-family: THICCCBOI;
+    font-weight: bold;
+}
+
+.loginpage_login_form_submit {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    width: 390px;
+    margin-top: 50px;
+}
+
+.loginpage_login_form_submit input {
+    width: 150px;
+    background-color: #F9896B;
+    color: white;
+}
+
+.loginpage_login_form_submit div {
+    color: #B0BCD0;
+    font-family: THICCCBOI;
+    cursor: pointer;
+}
+
+.loginpage_login_form_reset {
+    color: #B0BCD0;
+    font-family: THICCCBOI;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 2px
+}
