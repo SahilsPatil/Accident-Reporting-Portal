@@ -50,6 +50,8 @@
     line-height: 18px;
     padding: 0 15px;
     cursor: pointer;
+    letter-spacing: 1.2px;
+    font-variant-caps: petite-caps;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 

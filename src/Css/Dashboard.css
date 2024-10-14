@@ -1,0 +1,118 @@
+a{
+    text-decoration: none;
+    color: #B0BCD0;
+}
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: scroll;
+    scroll-padding: 0;
+    scrollbar-width: none;
+    -ms-overflow-style: scrollbar;
+    margin: 30px 50px;
+    color: #B0BCD0;
+    font-family: THICCCBOI;
+    width: 87vw;
+}
+
+.dashboard_boxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 95%;
+    margin: auto;
+}
+
+.dashboard_boxes_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #2B2C45;
+    padding: 20px 0px;
+    width: 280px;
+    /* margin-right: 50px; */
+    border-radius: 3px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard_boxes_box_title {
+    font-size: 16px;
+    letter-spacing: 0.3px;
+    font-variant-caps: petite-caps;
+}
+
+.dashboard_boxes_box_number {
+    font-family: 'Airone Demo';
+    font-size: 45px;
+}
+
+
+.dashboard_row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 40px;
+
+}
+
+.accidentgraph {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.accidentgraph_title{
+    font-size: 16px;
+    font-variant-caps: petite-caps;
+    letter-spacing: 0.7px;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+
+
+.dashboard_causes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    background-color: #2B2C45;
+    width: 250px;
+    padding: 20px;
+    border-radius: 3px;
+    margin-right: 40px;
+}
+
+.dashboard_causes_title {
+    font-variant-caps: petite-caps;
+    font-size: 16px;
+    letter-spacing: 0.7px;
+}
+
+.dashboard_causes_cause {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 25px;
+
+}
+
+.last_accident_details_other_emr {
+    margin-right: 50px;
+}
+
+.dashboard_causes_cause_number {
+    font-size: 30px;
+    font-family: 'Airone Demo';
+    letter-spacing: 1.2px;
+}

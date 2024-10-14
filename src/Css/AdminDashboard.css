@@ -1,13 +1,29 @@
+
+
 .dash {
     background-color: #1B1C31;
+    height: 100vh;
+    overflow: hidden;
     width: 100vw;
-    height: auto;
 }
 
 .dash_rows {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    /* align-items: center; */
+}
+
+.dash_column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.dash_rows_rows {
+    display: flex;
+    flex-direction: row;
     align-items: center;
 }
 
@@ -26,16 +42,23 @@
     font-family: THICCCBOI;
     width: 80px;
     transition: 0.5s;
+
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1), 8px 0 16px rgba(0, 0, 0, 0.1);
+    /* Initial floating effect */
+    /* transition: box-shadow 0.3s ease, transform 0.3s ease, width 0.5s; */
 }
 
 .dash_rows_side:hover {
     width: 190px;
     transition: 0.5s;
+    box-shadow: 8px 0 16px rgba(0, 0, 0, 0.2), 12px 0 24px rgba(0, 0, 0, 0.2);
 }
 
 .dash_rows_side:hover .dash_rows_side_menu span,
 .dash_rows_side:hover .dash_rows_side_logout span {
-    display: block;
+    transition: 0.5s;
+    visibility: visible;
+    width: 90px;
 }
 
 .dash_rows_side_menu {
@@ -59,6 +82,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    width: 100px;
 }
 
 .dash_rows_side_menu img,
@@ -69,8 +93,9 @@
 
 .dash_rows_side_menu span,
 .dash_rows_side_logout span {
-    display: none;
     cursor: pointer;
+    visibility: hidden;
+    width: 0px;
 }
 
 
@@ -79,12 +104,413 @@
     overflow-x: scroll;
     scroll-padding: 0;
     scrollbar-width: none;
-    /* Firefox */
-    -ms-overflow-style:scrollbar;
+    -ms-overflow-style: scrollbar;
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
 }
 
-.mid_head {
-    height: 1000px;
+.mid_accidents {
+    /* margin-top: 50px; */
+    padding: 50px;
+    max-width: 700px;
+}
+
+.mid_accidents_head {
+    color: #B0BCD0;
+    line-height: 28px;
+    font-size: 22px;
+    font-family: THICCCBOI;
+}
+
+.mid_accidents_views {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.mid_accidents_views_list {
+    font-size: 14px;
+    font-family: THICCCBOI;
     color: white;
-    font-size: 100px !important;
+    background-color: #F9896B;
+    font-weight: 400;
+    padding: 10px 17px;
+    border-radius: 7px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.mid_accidents_views_list:hover,
+.mid_accidents_views_map:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.mid_accidents_views_map {
+    font-size: 14px;
+    font-family: THICCCBOI;
+    color: #B0BCD0;
+    font-weight: 400;
+    padding: 10px 17px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    /* background-color: #313245; */
+}
+
+.mid_accidents_views_accidents {
+    background-color: #2b2c4500;
+    margin-top: 40px;
+    width: 600px;
+    border-radius: 5px;
+    font-family: THICCCBOI;
+    color: #B0BCD0;
+    font-weight: 400;
+    padding: 20px;
+    height: 450px;
+    overflow-x: scroll;
+    scroll-padding: 0;
+    scrollbar-width: none;
+    -ms-overflow-style: scrollbar;
+
+}
+
+.mid_accidents_views_accidents_accident {
+    /* background-color: #1B1C31; */
+    /* background-color: #2B2C45; */
+    padding: 20px;
+    padding-left: 0;
+    font-family: THICCCBOI;
+    width: 500px;
+    margin: auto;
+    margin-bottom: 20px;
+    /* border-radius: 5px; */
+    font-size: 14px;
+    flex-direction: row;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    /* border-bottom: 1px solid #313245; */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.mid_accidents_views_accidents_accident:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.mid_accidents_views_accidents_accident_num {
+    font-family: 'Airone Demo';
+    padding: 10px 0px;
+    width: 30px;
+    text-align: center;
+    font-size: 28px;
+    color: #1B1C31;
+    /* background-color: #B0BCD0; */
+    margin-right: 10px;
+}
+
+.mid_accidents_views_accidents_accident_num img {
+    width: 70px;
+}
+
+.mid_accidents_views_accidents_accident_column {
+    font-family: THICCCBOI;
+
+    font-size: 14px;
+    position: relative;
+    width: 75%;
+}
+
+.mid_accidents_views_accidents_accident_status {
+    position: absolute;
+    background-color: #51459E;
+    width: auto;
+    color: white;
+    padding: 2px 9px;
+    font-family: THICCCBOI;
+    font-size: 14px;
+    left: 100%;
+    border-radius: 2px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25), 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.mid_accidents_views_accidents_accident_location {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    letter-spacing: 0.5px;
+    margin-bottom: 0px;
+    margin-left: 45px;
+}
+
+.mid_accidents_views_accidents_accident img {
+    padding: 0 10px;
+}
+
+.mid_accidents_views_accidents_accident_typesev {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 45px;
+
+}
+
+.mid_accidents_views_accidents_accident_typesev_date {
+    font-size: 13px;
+    color: #b0bcd0ec;
+}
+
+.mid_accidents_views_accidents_accident_typesev_type {
+    background-color: rgb(159, 0, 0);
+    width: 60px;
+    text-align: center;
+    color: white;
+    padding: 1px 0px;
+    font-family: THICCCBOI;
+    font-size: 13px;
+    border-radius: 2px;
+    letter-spacing: 0.5px;
+    margin-top: 5px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25), 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.top {
+    padding: 40px;
+    padding-bottom: 10px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top_title {
+    color: #B0BCD0;
+    font-family: THICCCBOI;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+}
+
+.top_other {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.top_other img {
+    padding: 0px 5px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+
+
+.last {
+    /* background-color: #2B2C45; */
+    width: 720px;
+    /* height: 80vh; */
+    overflow: hidden;
+    padding: 50px;
+
+}
+
+.last_accident {
+    scroll-padding: 0;
+    scrollbar-width: none;
+    -ms-overflow-style: scrollbar;
+    background-color: #2B2C45;
+    width: 100%;
+    height: 525px;
+    margin-top: 20px;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: hidden;
+    overflow-y: scroll;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+
+}
+
+.last_accident img {
+    width: 650px;
+    margin-bottom: 10px;
+    height: 300px;
+}
+
+.last_accident_details {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: #B0BCD0;
+    font-family: THICCCBOI;
+    border-bottom: 1px solid #51459E;
+    position: relative;
+}
+
+.last_accident_details_location {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.last_accident_details_location img {
+    width: 30px;
+    margin: 0;
+    margin-right: 5px;
+    height: 30px;
+}
+
+.last_accident_details_location_title {
+    font-size: 16px;
+}
+
+.last_accident_details_location_Desc {
+    font-size: 14px;
+    color: #b0bcd0ec;
+}
+
+.last_accident_details_timesev {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 450px;
+}
+
+.last_accident_details_location_Desc select {
+    width: 100px;
+    /* padding: 10px 15px; */
+    /* border-radius: 7px; */
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #B0BCD0;
+    font-family: THICCCBOI;
+}
+
+.last_accident_details_location_Desc option {
+    background-color: #1B1C31;
+    border: none;
+    outline: none;
+}
+
+.last_accident_details_other {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.last_accident_details_other_emr {
+    background-color: #1B1C31;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+.last_accident_details_other_emr:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 12px 24px rgba(0, 0, 0, 0.2);
+
+}
+
+.last_accident_details_other_emr img {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+}
+
+.last_accident_details_status{
+    position: absolute;
+    width: 10px;
+}
+.last_accident_details_status_open{
+    background-color: #F9896B;
+    width: 10px;
+    height: 10px;
+    border-radius: 100px;
+    margin-left: 550px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+
+}
+.last_accident_details_status_closed{
+    background-color: #1B1C31;
+    width: 10px;
+    height: 10px;
+    border-radius: 100px;
+    top: 20px;
+    left: 50px;
+    margin-left: 550px;
+    /* margin-top: 100px; */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+
+}
+.last_accident_details_status_line{
+    width: 4px;
+    background-color: #1B1C31;
+    height: 80px;
+    margin-left: 552.9px;
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+
+}
+.last_accident_details_status_line_line{
+    width: 4px;
+    background-color: #F9896B;
+    height: 30px;
+    border-radius: 10px;
+    z-index: 1;
+    transition: .5s;
+
+    box-shadow: 0.5px 0.5px 30px #F9896B;
+}
+.last_accident_details_status_line_line:hover{
+    height: 80px;
+    transition: .5s;
+}
+.last_accident_details_map{
+    width: 100%;
+}
+
+
+.accidentmap{
+    overflow: hidden;
+    width: 100%;
+    height: 650px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+
 }

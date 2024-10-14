@@ -1,0 +1,65 @@
+/* LiveVideoFeed.css */
+
+.live-video-feed {
+    border-radius: 3px;
+    margin: 10px 0;
+    margin-top: 20px;
+}
+
+.video-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    width:400px;
+    height: 200px;
+}
+
+.live-video-feed.expanded .video-container {
+    height: 95%; 
+    width: 100vw; 
+    position: absolute; 
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 10px;
+    width: 300px;
+
+}
+
+.controls button {
+    background-color: transparent; /* No background for buttons */
+    color: #B0BCD0; /* Adjust based on your theme */
+    border: none;
+    cursor: pointer;
+    font-size: 20px; /* Increase icon size */
+    transition: color 0.3s;
+    
+    background-color: #1B1C31;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+
+}
+.controls button:hover {
+    color: #9FB3C1; /* Darker shade on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+h3{
+    font-size: 16px;
+    font-variant-caps: petite-caps;
+    letter-spacing: 0.7px;
+}

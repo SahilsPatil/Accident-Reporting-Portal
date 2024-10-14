@@ -1,0 +1,14 @@
+.dashboard_lives {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow-y: scroll;
+    scroll-padding: 0;
+    scrollbar-width: none;
+    -ms-overflow-style: scrollbar;
+    height: 85vh;
+    margin: auto;
+}
