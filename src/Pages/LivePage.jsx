@@ -12,7 +12,7 @@ export default function LivePage() {
             <div className="dash_rows">
                 <SideBar />
                 <div>
-                    <TopNav />
+                    <TopNav title={"Live Cameras"}/>
                     <div className='dashboard'>
                         <div className="dashboard_lives">
                             <LiveVideoFeed url="/src/assets/accident/videos/video1.mp4" title="Camera 1: Entrance" />

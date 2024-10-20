@@ -2,8 +2,15 @@ import React, { useState } from 'react';
 import './../Css/LoginPage.css';
 import './../Css/Navbar.css';
 import NavBar from '../Components/NavBar';
+import { Link, useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
+    const [role, setRole] = useState("public")
+
+    const history = useNavigate();
+    const handleSubmit = () => {
+        history("/dashboard")
+    }
 
     return (
         <div className='loginpage'>
@@ -15,10 +22,13 @@ const LoginPage = () => {
                 <div className="loginpage_login_form">
                     <div className="loginpage_login_form_role">
                         {/* <label htmlFor="role">Select Role</label> */}
-                        <select name="role" id="role">
+                        <select onChange={(e) => setRole(e.target.value)} value={role} name="role" id="role">
                             <option value="Role" disabled>Select Role</option>
-                            <option value="Admin">Admin</option>
+                            <option value="Public">Public</option>
+                            <option value="Fire">Fire</option>
+                            <option value="Ambulance">Ambulance</option>
                             <option value="Police">Police</option>
+                            <option value="Admin">Admin</option>
                         </select>
                     </div>
                     <div className="loginpage_login_form_email">
@@ -31,8 +41,8 @@ const LoginPage = () => {
                         Reset Password
                     </div>
                     <div className="loginpage_login_form_submit">
-                        <input type="submit" value="Submit" />
-                        <div>Register</div>
+                        <input onClick={handleSubmit} type="submit" value="Submit" />
+                        <div><Link to="/register">Register</Link></div>
                     </div>
                 </div>
             </div>

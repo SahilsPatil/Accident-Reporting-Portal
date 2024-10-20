@@ -8,23 +8,13 @@ import Hero from '../Components/Hero';
 
 export default function HomePage() {
     return (
-        <div style={{ position: "relative" }}>
-            {/* Navbar */}
+        <div style={{ position: "relative", height: "100vh", overflow:"hidden" }}>
             <NavBar />
-
-            {/* Fullscreen Hero Section */}
-            {/* <header style={{ marginTop: 0 }} className="d-flex justify-content-center align-items-center text-white hero-section">
-                <div style={{ backdropFilter: "blur(5px)", width: "100%" }} className="text-center">
-                    <h1 style={{ letterSpacing: "5px", textShadow: "1px 1px 45px black" }} className="display-3 font-weight-bold mb-4 hero-title">Smart Accident Detection <br /> And <br /> Reporting System</h1>
-                    <p style={{ fontWeight: 100, fontSize: '24px', textShadow: "4px 4px 10px black", marginTop: 40 }} className="lead mb-5 hero-subtitle">Real-time accident monitoring using IoT, ML, Web Tech, and Cloud.</p>
-                    <Link to="/public" style={{ color: 'white', fontWeight: 800, marginTop: 20, padding: "10px 40px", borderRadius: 7, letterSpacing: "2px" }} className="btn btn-custom btn-lg shadow">Get Started</Link>
-                </div>
-            </header> */}
-            <Hero/>
+            <Hero />
 
 
             {/* Features Section */}
-            <section className="py-5 features-section">
+            {/* <section className="py-5 features-section">
                 <div className="container">
                     <h2 className="font-weight-bold text-center mb-4 section-title">Key Features</h2>
                     <div className="row text-center">
@@ -51,10 +41,10 @@ export default function HomePage() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* How It Works Section */}
-            <section className="py-5 how-it-works-section text-white">
+            {/* <section className="py-5 how-it-works-section text-white">
                 <div className="container text-center">
                     <h2 className="font-weight-bold mb-5 section-title">How It Works</h2>
                     <div className="row">
@@ -81,10 +71,10 @@ export default function HomePage() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* Footer */}
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }

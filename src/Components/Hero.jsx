@@ -1,20 +1,21 @@
 import React from 'react'
 import './../Css/Hero.css'
+import { Link } from 'react-router-dom'
 
 export default function Hero() {
     return (
         <div className='hero'>
-            <div className='hero_blur'></div>
             <div className="hero_side">
                 <div className="hero_side_menu">
-                    <li>Help</li>
-                    <li>How it Works</li>
+                    <Link to="/help"><li>Help</li></Link>
+                    <Link to="/how"><li>How it Works</li></Link>
+
                 </div>
                 <div className="hero_side_social">
-                    <img src="/src/assets/icon_linkdin.svg" color='#FCFCFC' alt="" />
-                    <img src="/src/assets/icon_messanger.svg" alt="" />
-                    <img src="/src/assets/icon_twitter.svg" alt="" />
-                    <img src="/src/assets/icon_meta.svg" alt="" />
+                    <a href="https://linkdin.com"><img src="/src/assets/icon_linkdin.svg" color='#FCFCFC' alt="" /></a>
+                    <a href="https://instagram.com"><img src="/src/assets/icon_messanger.svg" alt="" /></a>
+                    <a href="https://x.com"><img src="/src/assets/icon_twitter.svg" alt="" /></a>
+                    <a href="https://meta.com"><img src="/src/assets/icon_meta.svg" alt="" /></a>
                 </div>
             </div>
             <div className="hero_hero">
@@ -25,7 +26,7 @@ export default function Hero() {
                     Real-time accident monitoring using IoT, ML, Web Tech, and Cloud.
                 </div>
                 <div className="hero_hero_button">
-                    Get Started <img src="/src/assets/icon_arrow.svg" alt="" />
+                    <Link style={{color:"inherit"}} to="/register">Get Started <img src="/src/assets/icon_arrow.svg" alt="" /></Link>
                 </div>
             </div>
             <div className="hero_other">
@@ -38,7 +39,7 @@ export default function Hero() {
                         Automatically detects accidents using IoT and machine learning.
                     </div>
                     <div className="hero_other_other_see">
-                        See details
+                        <Link to="/how#">See Details</Link>
                     </div>
                 </div>
                 <div className="hero_other_other">
@@ -49,7 +50,7 @@ export default function Hero() {
                         Pinpoints accident locations with GPS coordinates for rapid response.
                     </div>
                     <div className="hero_other_other_see">
-                        See details
+                        <Link to="/how#">See Details</Link>
                     </div>
                 </div>
                 <div className="hero_other_other">
@@ -60,10 +61,11 @@ export default function Hero() {
                         Notifies emergency services instantly for quicker action.
                     </div>
                     <div className="hero_other_other_see">
-                        See details
+                        <Link to="/how#">See Details</Link>
                     </div>
                 </div>
             </div>
+            <div className='hero_blur'></div>
         </div>
     )
 }

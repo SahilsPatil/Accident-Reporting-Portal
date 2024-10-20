@@ -6,15 +6,15 @@ export default function NavBar() {
     return (
         <div className='nav'>
             <div className="nav_logo">
-                <img src="/src/assets/nav_logo.svg" alt="" />
+                <Link to="/"><img src="/src/assets/nav_logo.svg" alt="" /></Link>
             </div>
             <div className="nav_menu">
                 <div className="nav_menu_menu">
                     <ul>
-                        <li>Home</li>
-                        <li>Dashboard</li>
-                        <li>About Us</li>
-                        <li>Contact</li>
+                        <Link to="/"><li>Home</li></Link>
+                        <Link to="/dashboard"><li>Dashboard</li></Link>
+                        <Link to="/about"><li>About Us</li></Link>
+                        <Link to="/contact"><li>Contact</li></Link>
                     </ul>
                 </div>
             </div>

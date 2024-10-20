@@ -7,6 +7,7 @@ import ReportsPage from './Pages/ReportsPage';
 import Dashboard from './Pages/Dashboard';
 import LivePage from './Pages/LivePage';
 import UserManagament from './Pages/UserManagament';
+import JobsPage from './Pages/JobsPage';
 // Import other components as needed
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard/>} />
         <Route path="/live" element={<LivePage/>} />
         <Route path="/users" element={<UserManagament/>} />
+        <Route path="/jobs" element={<JobsPage/>} />
         <Route path="/police" element={<LoginPage/>} />
         <Route path="/ambulance" element={<LoginPage/>} />
         <Route path="/firebrigade" element={<LoginPage/>} />

@@ -3,6 +3,7 @@ import './../Css/LoginPage.css';
 import './../Css/Navbar.css';
 import './../Css/RegisterPage.css';
 import NavBar from '../Components/NavBar';
+import { Link } from 'react-router-dom';
 
 export default function
     () {
@@ -31,10 +32,10 @@ export default function
                         <input type="password" placeholder='Conferm Password' />
                     </div>
                     <div className="loginpage_login_form_submit">
-                        <input type="submit" value="Submit" />
+                    <Link to="/dashboard"><input type="submit" value="Submit" /></Link>
                     </div>
                     <div className="loginpage_login_form_reset">
-                        Login
+                        <Link to="/login">Login</Link>
                     </div>
                 </div>
             </div>
