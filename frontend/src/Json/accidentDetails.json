@@ -1,0 +1,101 @@
+[
+    {
+      "id": 1,
+      "location": {
+        "city": "Aurangabad",
+        "lat": 19.8762,
+        "lng": 75.3433
+      },
+      "time": "2023-10-05T10:30:00",
+      "severity": "High",
+      "type": "Car Collision",
+      "status": "Open",
+      "spot": "Railway Station Road, Aurangabad",
+      "vehicle":"Car"
+    },
+    {
+      "id": 2,
+      "location": {
+        "city": "Aurangabad",
+        "lat": 19.8721,
+        "lng": 75.3312
+      },
+      "time": "2024-10-04T08:45:00",
+      "severity": "Medium",
+      "type": "Bike Accident",
+      "status": "Resolved",
+      "spot": "Kranti Chowk, Aurangabad",
+      "vehicle":"Bike"
+    },
+    {
+      "id": 3,
+      "location": {
+        "city": "Aurangabad",
+        "lat": 19.8608,
+        "lng": 75.3420
+      },
+      "time": "2024-10-03T17:20:00",
+      "severity": "Low",
+      "type": "Truck Overturn",
+      "status": "Open",
+      "spot": "Jalna Road, Aurangabad",
+      "vehicle":"Truck"
+    },
+    {
+      "id": 4,
+      "location": {
+        "city": "Aurangabad",
+        "lat": 19.9028,
+        "lng": 75.3100
+      },
+      "time": "2024-10-02T22:10:00",
+      "severity": "High",
+      "type": "Multi-Vehicle Crash",
+      "status": "Open",
+      "spot": "Waluj MIDC, Aurangabad",
+      "vehicle":"Car"
+    },
+    {
+      "id": 5,
+      "location": {
+        "city": "Mumbai",
+        "lat": 19.0760,
+        "lng": 72.8777
+      },
+      "time": "2024-10-02T13:35:00",
+      "severity": "Medium",
+      "type": "Car Accident",
+      "status": "Resolved",
+      "spot": "Western Express Highway, Mumbai",
+      "vehicle":"Car"
+    },
+    {
+      "id": 6,
+      "location": {
+        "city": "Aurangabad",
+        "lat": 19.8622,
+        "lng": 75.3354
+      },
+      "time": "2024-10-01T14:05:00",
+      "severity": "High",
+      "type": "Bus Collision",
+      "status": "Open",
+      "spot": "Prozone Mall, Aurangabad",
+      "vehicle":"Bus"
+    },
+    {
+      "id": 7,
+      "location": {
+        "city": "Aurangabad",
+        "lat": 19.8765,
+        "lng": 75.3557
+      },
+      "time": "2024-09-30T19:25:00",
+      "severity": "Low",
+      "type": "Pedestrian Accident",
+      "status": "Resolved",
+      "spot": "CIDCO N-5, Aurangabad",
+      "vehicle":""
+    }
+  ]
+  
