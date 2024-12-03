@@ -4,9 +4,10 @@ import SideBar from '../Components/SideBar';
 import './../Css/AdminDashboard.css';
 import './../Css/Dashboard.css';
 import './../Css/LoginPage.css';
-import './../Css/Navbar.css';
+import './../Css/NavBar.css';
 import './../Css/RegisterPage.css';
 import axios from 'axios';
+import url from '../../backend.json';
 
 export default function ReportAccidentPage() {
     const [formData, setFormData] = useState({
@@ -22,7 +23,6 @@ export default function ReportAccidentPage() {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    // Function to get the current location
     const getLocation = () => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
@@ -44,100 +44,165 @@ export default function ReportAccidentPage() {
     };
 
     useEffect(() => {
-        // Optionally, get the location when the component is mounted
         getLocation();
-    }, []); // This will run once when the component is mounted
+    }, []);
 
 
-    // useEffect(() => {
-    //     navigator.geolocation.getCurrentPosition(
-    //         (position) => {
-    //             setFormData((prevData) => ({
-    //                 ...prevData,
-    //                 location: {
-    //                     lat: position.coords.latitude,
-    //                     lng: position.coords.longitude
-    //                 }
-    //             }));
-    //         },
-    //         () => {
-    //             console.warn("Could not fetch location. Using last known or default location.");
-    //         }
-    //     );
-    // }, []);
+    // const handleChange = (e) => {
+    //     const { name, value, files } = e.target;
 
+    //     if (name === "images") {
+    //         // Handle file input
+    //         const updatedImages = Array.from(files).map((file) => {
+    //             // Generate a unique file name using the timestamp
+    //             const uniqueFileName = `${Date.now()}-${file.name}`;
+    //             // Save the file temporarily to the 'assets' folder
+    //             const reader = new FileReader();
+    //             reader.onloadend = () => {
+    //                 const tempImagePath = `${uniqueFileName}`;
+    //                 // This would be the temporary image location, which can later be uploaded
+    //                 console.log(tempImagePath); // You can use this for preview or other logic
+    //             };
+    //             reader.readAsDataURL(file);
+    //             return uniqueFileName; // Save the unique name
+    //         });
+    //         setFormData((prevData) => ({
+    //             ...prevData,
+    //             images: updatedImages
+    //         }));
+    //     } else {
+    //         setFormData((prevData) => ({
+    //             ...prevData,
+    //             [name]: value
+    //         }));
+    //     }
+    // };
     const handleChange = (e) => {
         const { name, value, files } = e.target;
 
         if (name === "images") {
-            // Handle file input
-            const updatedImages = Array.from(files).map((file) => {
-                // Generate a unique file name using the timestamp
-                const uniqueFileName = `${Date.now()}-${file.name}`;
-                // Save the file temporarily to the 'assets' folder
-                const reader = new FileReader();
-                reader.onloadend = () => {
-                    const tempImagePath = `${uniqueFileName}`;
-                    // This would be the temporary image location, which can later be uploaded
-                    console.log(tempImagePath); // You can use this for preview or other logic
-                };
-                reader.readAsDataURL(file);
-                return uniqueFileName; // Save the unique name
+            // Process FileList into an array of base64 strings
+            const filePromises = Array.from(files).map((file) => {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onload = () => resolve(reader.result); // Base64 string
+                    reader.onerror = (error) => reject(error);
+                    reader.readAsDataURL(file);
+                });
             });
-            setFormData((prevData) => ({
-                ...prevData,
-                images: updatedImages
-            }));
+
+            // Resolve promises and update formData
+            Promise.all(filePromises)
+                .then((base64Files) => {
+                    setFormData((prevData) => ({
+                        ...prevData,
+                        images: base64Files, // Set array of base64 strings
+                    }));
+                })
+                .catch((error) => {
+                    console.error("Error processing files:", error);
+                    setError("Failed to process image files.");
+                });
         } else {
+            // Update other fields
             setFormData((prevData) => ({
                 ...prevData,
-                [name]: value
+                [name]: value,
             }));
         }
     };
 
+    console.log(formData)
+
+
+
+
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     console.log("Submitting the form data:", formData);
+
+    //     // Create the data object
+    //     const data = {
+    //         spot: formData.spot,
+    //         severity: formData.severity,
+    //         type: formData.type,
+    //         location: formData.location,
+    //         image: formData.images, // If images are part of the form, consider handling it as base64 or uploading separately
+    //         time: formData.time,
+    //         description: formData.description
+    //     };
+
+    //     // Send the POST request with JSON data
+    //     axios.post(url.URL+'/api/accidents/report', data, {
+    //         headers: {
+    //             'Content-Type': 'application/json' // Send data as JSON
+    //         }
+    //     })
+    //     .then(response => {
+    //         console.log('Accident reported:', response);
+    //         alert("Accident reported successfully!");
+    //         // Reset the form data after successful submission
+    //         setFormData({
+    //             spot: '',
+    //             severity: '',
+    //             type: '',
+    //             description: '',
+    //             images: null,
+    //             location: { lat: null, lng: null },
+    //             time: new Date(),
+    //         });
+    //     })
+    //     .catch(error => {
+    //         console.error('Error reporting accident:', error);
+    //         setError('Failed to report accident. Please try again.');
+    //     });
+    // };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Submitting the form data:", formData);
-    
-        // Create the data object
+
+        // Log the form data for debugging
+        console.log("Form Data Before Submit:", formData);
+
         const data = {
             spot: formData.spot,
             severity: formData.severity,
             type: formData.type,
+            description: formData.description,
             location: formData.location,
-            image: formData.images, // If images are part of the form, consider handling it as base64 or uploading separately
+            images: formData.images,
             time: formData.time,
-            description: formData.description
         };
-    
-        // Send the POST request with JSON data
-        axios.post('http://localhost:5000/api/accidents/report', data, {
+
+        axios.post(`${url.URL}/api/accidents/report`, data, {
             headers: {
-                'Content-Type': 'application/json' // Send data as JSON
-            }
+                "Content-Type": "application/json",
+            },
         })
-        .then(response => {
-            console.log('Accident reported:', response);
-            alert("Accident reported successfully!");
-            // Reset the form data after successful submission
-            setFormData({
-                spot: '',
-                severity: '',
-                type: '',
-                description: '',
-                images: null,
-                location: { lat: null, lng: null },
-                time: new Date(),
+            .then((response) => {
+                console.log("Accident reported successfully:", response.data);
+                alert("Accident reported successfully!");
+                // Reset the form
+                setFormData({
+                    spot: "",
+                    severity: "",
+                    type: "",
+                    description: "",
+                    images: null,
+                    location: { lat: null, lng: null },
+                    time: new Date(),
+                });
+            })
+            .catch((error) => {
+                console.error("Error reporting accident:", error);
+                setError("Failed to report accident. Please try again.");
             });
-        })
-        .catch(error => {
-            console.error('Error reporting accident:', error);
-            setError('Failed to report accident. Please try again.');
-        });
     };
-    
+
+
+    console.log(formData)
+
+
 
     return (
         <div className='dash'>

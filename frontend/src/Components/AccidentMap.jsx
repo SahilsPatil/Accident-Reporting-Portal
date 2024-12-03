@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
+import url from '../../backend.json';
 // import accidentData from './../Json/accidentDetails.json';
 
 export default function AccidentMap({ onLocationClick }) {
@@ -13,7 +14,7 @@ export default function AccidentMap({ onLocationClick }) {
         // Fetch data from the API
         const fetchAccidents = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/accidents/'); // Replace with your actual API URL
+                const response = await fetch(url.URL+'/api/accidents/'); // Replace with your actual API URL
                 if (!response.ok) {
                     throw new Error('Failed to fetch accident data');
                 }

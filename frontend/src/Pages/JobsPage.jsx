@@ -69,9 +69,9 @@ export default function JobsPage() {
         // Fetch jobs, accidents, and users data from API
         const fetchData = async () => {
             try {
-                const jobsResponse = await fetch('http://localhost:5000/api/jobs');
-                const accidentsResponse = await fetch('http://localhost:5000/api/accidents');
-                const usersResponse = await fetch('http://localhost:5000/api/users/all');
+                const jobsResponse = await fetch(url.URL+'/api/jobs');
+                const accidentsResponse = await fetch(url.URL+'/api/accidents');
+                const usersResponse = await fetch(url.URL+'/api/users/all');
 
                 if (!jobsResponse.ok || !accidentsResponse.ok || !usersResponse.ok) {
                     throw new Error('Failed to fetch data');

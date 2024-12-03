@@ -1,13 +1,18 @@
 // routes/accidentRoutes.js
 const express = require('express');
 const router = express.Router();
-const {
-    getAllAccidents,
-    getAccidentById,
-    updateAccidentById,
-    deleteAccidentById,
-} = require('../controllers/accidentController');
 const Accident = require('../models/Accident');
+const { getAllAccidents, getAccidentById, updateAccidentById, deleteAccidentById, } = require('../controllers/accidentController');
+const multer = require("multer");
+const { v4: uuidv4 } = require("uuid");
+const path = require("path");
+const fs = require("fs");
+
+// const imageDir = path.join(__dirname, "accidents/images");
+const imageDir = "./accidents/images"
+if (!fs.existsSync(imageDir)) {
+    fs.mkdirSync(imageDir, { recursive: true });
+}
 
 // Routes for accident data
 router.get('/', getAllAccidents);              // Get all accidents
@@ -16,17 +21,38 @@ router.put('/:id', updateAccidentById);        // Update specific accident by ID
 router.delete('/:id', deleteAccidentById);     // Delete specific accident by ID
 
 router.post('/report', async (req, res) => {
+    // console.log("Payload size:", JSON.stringify(req.body).length, "bytes");
+    // console.log(`Headers: ${JSON.stringify(req.headers)}`);
+    // console.log(`Content-Length: ${req.headers["content-length"] || "N/A"}`);
+    console.log(req);
+    
     try {
         const { spot, location, severity, type, description, images } = req.body;
+
+        if (!images || !Array.isArray(images)) {
+            return res.status(400).json({ message: "No images provided or invalid format." });
+        }
+        const savedImageNames = images.map((base64Image, index) => {
+            const fileExtension = base64Image.match(/data:image\/(.*?);base64/)[1]; // Extract file type
+            const uniqueName = `${uuidv4()}-${index}.${fileExtension}`;
+            const imageBuffer = Buffer.from(base64Image.split(",")[1], "base64"); // Decode base64
+
+            // Save image to disk
+            fs.writeFileSync(path.join(imageDir, uniqueName), imageBuffer);
+
+            return uniqueName; // Return saved filename
+        });
+        console.log(savedImageNames);
+        
 
         // Create a new accident report
         const newAccident = new Accident({
             spot,
             location,
             severity,
-            type,
+            vehical: type,
             description,
-            images: images || [], // Array of image URLs or paths
+            images: savedImageNames || [], // Array of image URLs or paths
             status: 'Open',
             time: new Date(),
         });
@@ -34,7 +60,7 @@ router.post('/report', async (req, res) => {
         const savedAccident = await newAccident.save();
         res.status(201).json({ message: 'Accident reported successfully', accident: savedAccident });
         // console.log(res);
-        
+
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'An error occurred while reporting the accident', error });

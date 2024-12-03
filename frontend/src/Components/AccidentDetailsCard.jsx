@@ -20,7 +20,7 @@
 //         // Fetch data from the API
 //         const fetchAccidents = async () => {
 //             try {
-//                 const response = await fetch('http://localhost:5000/api/accidents/'); // Replace with your actual API URL
+//                 const response = await fetch(url.URL+'/api/accidents/'); // Replace with your actual API URL
 //                 if (!response.ok) {
 //                     throw new Error('Failed to fetch accident data');
 //                 }
@@ -154,6 +154,7 @@ import React, { useEffect, useState } from 'react';
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import L from 'leaflet';
+import url from '../../backend.json';
 
 export default function AccidentDetailsCard({ id }) {
     const [accidentData, setAccidents] = useState([]);
@@ -163,7 +164,7 @@ export default function AccidentDetailsCard({ id }) {
     useEffect(() => {
         const fetchAccidents = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/accidents/');
+                const response = await fetch(url.URL + '/api/accidents/');
                 if (!response.ok) {
                     throw new Error('Failed to fetch accident data');
                 }
@@ -192,7 +193,7 @@ export default function AccidentDetailsCard({ id }) {
 
     const assignJob = async (serviceType) => {
         try {
-            const response = await fetch(`http://localhost:5000/api/jobs/assign/${id}/${serviceType}`, {
+            const response = await fetch(`${url.URL}/api/jobs/assign/${id}/${serviceType}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
             });
@@ -213,7 +214,7 @@ export default function AccidentDetailsCard({ id }) {
                     return (
                         <div key={e._id}>
                             <div className="last_accident_photo">
-                                <img src="/src/assets/accident/image.png" alt="" />
+                                {e.images[0]?<img src={url.URL+"/images/"+e.images[0]} alt="" />:<img src="/src/assets/accident/image.png" alt="" />}
                             </div>
                             <div className="last_accident_details">
                                 <div className="last_accident_details_location">

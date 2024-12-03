@@ -17,6 +17,10 @@ const AccidentSchema = new mongoose.Schema({
     },
     type: {
         type: String,
+        // required: true,
+    },
+    vehical: {
+        type: String,
         required: true,
     },
     status: {
@@ -32,7 +36,7 @@ const AccidentSchema = new mongoose.Schema({
         type: String,
     },
     images: {
-        type: [String], // URLs or paths to images
+        type: [String], default: [] // URLs or paths to images
     },
     videos: {
         type: [String], // URLs or paths to videos

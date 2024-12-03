@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import './../Css/LoginPage.css';
-import './../Css/Navbar.css';
+// import './../Css/Navbar.css';
 import './../Css/RegisterPage.css';
 import NavBar from '../Components/NavBar';
 import Popup from '../Components/Popup';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import url from '../../backend.json';
 
 export default function RegisterPage() {
 
@@ -31,7 +32,7 @@ export default function RegisterPage() {
             return;
         }
         try {
-            await axios.post('http://localhost:5000/api/auth/register', formData);
+            await axios.post(url.URL+'/api/auth/register', formData);
             setPopup({ show: true, message: "Registration successful!", type: "success" });
             setTimeout(() => navigate('/login'), 3000);
         } catch (error) {

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import './../Css/LoginPage.css';
-import './../Css/Navbar.css';
+// import './../Css/Navbar.css';
 import NavBar from '../Components/NavBar';
 import Popup from '../Components/Popup';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 // import * as jwt_decode from 'jwt-decode';
+import url from '../../backend.json';
 
 const LoginPage = () => {
     const [role, setRole] = useState("public")
@@ -14,6 +15,7 @@ const LoginPage = () => {
     const [popup, setPopup] = useState({ show: false, message: '', type: '' });
     const navigate = useNavigate();
     const { login } = useAuth();
+
 
     const decodeJWT = (token) => {
         const base64Url = token.split('.')[1];
@@ -37,11 +39,11 @@ const LoginPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/login', formData);
-            // console.log(response);
+            const response = await axios.post(url.URL+'/api/auth/login', formData);
+            console.log(response);
             // const data = await response.json();
 
-            if (response.statusText == 'OK') {
+            if (response.status == 200) {
                 const token = response.data.token;
                 const userData = {role : decodeJWT(token).role};
                 const userAllData = response.data.result                
@@ -123,7 +125,7 @@ export default LoginPage;
 //     const handleSubmit = async (e) => {
 //         e.preventDefault();
 //         try {
-//             await axios.post('http://localhost:5000/api/auth/login', formData);
+//             await axios.post(url.URL+'/api/auth/login', formData);
 //             setPopup({ show: true, message: "Login successful!", type: "success" });
 //             setTimeout(() => navigate('/dashboard'), 3000);
 //         } catch (error) {

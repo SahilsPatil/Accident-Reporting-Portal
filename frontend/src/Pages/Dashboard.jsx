@@ -5,6 +5,7 @@ import './../Css/AdminDashboard.css';
 import './../Css/Dashboard.css';
 import AccidentTrendGraph from '../Components/AccidentTrendGraph';
 import { Link, useNavigate } from 'react-router-dom';
+import url from '../../backend.json';
 // import accidentData2 from './../Json/accidentDetails.json';
 
 export default function Dashboard() {
@@ -19,7 +20,7 @@ export default function Dashboard() {
         // Fetch data from the API
         const fetchAccidents = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/accidents/'); // Replace with your actual API URL
+                const response = await fetch(url.URL+'/api/accidents/'); // Replace with your actual API URL
                 if (!response.ok) {
                     throw new Error('Failed to fetch accident data');
                 }
@@ -43,7 +44,7 @@ export default function Dashboard() {
         };
         const fetchAccidentsSummery = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/accident-summary/all'); // Replace with your actual API URL
+                const response = await fetch(url.URL+'/api/accident-summary/all'); // Replace with your actual API URL
                 if (!response.ok) {
                     throw new Error('Failed to fetch accident data');
                 }

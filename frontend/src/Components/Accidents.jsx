@@ -3,7 +3,7 @@ import AccidentCard from './AccidentCard'
 import AccidentMap from './AccidentMap'
 // import accidentData from './../Json/accidentDetails.json';
 import { useLocation } from 'react-router-dom';
-
+import url from '../../backend.json';
 
 export default function Accidents({ onAccidentSelect }) {
     const location = useLocation();
@@ -22,7 +22,7 @@ export default function Accidents({ onAccidentSelect }) {
         // Fetch data from the API
         const fetchAccidents = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/accidents/'); // Replace with your actual API URL
+                const response = await fetch(url.URL+'/api/accidents/'); // Replace with your actual API URL
                 if (!response.ok) {
                     throw new Error('Failed to fetch accident data');
                 }
