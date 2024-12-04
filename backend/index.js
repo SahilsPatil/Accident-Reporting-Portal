@@ -37,14 +37,14 @@ app.use(urlencodedParser);
 // if (!fs.existsSync(imageDir)) {
 //     fs.mkdirSync(imageDir, { recursive: true });
 // }
-// app.use("/images", express.static("./accidents/images"));
+app.use("/images", express.static("./accidents/images"));
 // app.use("/images", express.static(imageDir));
-const tempImageDir = '/tmp/images';
-if (!fs.existsSync(tempImageDir)) {
-    fs.mkdirSync(tempImageDir, { recursive: true });
-}
+// const tempImageDir = '/tmp/images';
+// if (!fs.existsSync(tempImageDir)) {
+//     fs.mkdirSync(tempImageDir, { recursive: true });
+// }
 
-app.use("/images", express.static(tempImageDir));
+// app.use("/images", express.static(tempImageDir));
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected'))
