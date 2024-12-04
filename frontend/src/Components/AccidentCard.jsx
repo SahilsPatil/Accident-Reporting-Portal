@@ -9,7 +9,7 @@ export default function AccidentCard({ spot, status, time, severity, id, onCardC
 
     return (
         <div className="mid_accidents_views_accidents_accident" onClick={handleClick}>
-            <div className="mid_accidents_views_accidents_accident_num"><img src="/src/assets/icon_fire.svg" alt="" /></div>
+            <div className="mid_accidents_views_accidents_accident_num"><img src="./src/assets/icon_fire.svg" alt="" /></div>
             <div className="mid_accidents_views_accidents_accident_column">
                 <div className="mid_accidents_views_accidents_accident_status">{status}</div>
                 <div className="mid_accidents_views_accidents_accident_location">
