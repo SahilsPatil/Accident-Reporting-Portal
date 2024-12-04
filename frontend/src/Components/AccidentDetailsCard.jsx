@@ -218,7 +218,7 @@ export default function AccidentDetailsCard({ id }) {
                             </div>
                             <div className="last_accident_details">
                                 <div className="last_accident_details_location">
-                                    <img src="/src/assets/icon_location.svg" alt="" />
+                                    <img src="./src/assets/icon_location.svg" alt="" />
                                     <div className="last_accident_details_location_details">
                                         <div className="last_accident_details_location_title">Location</div>
                                         <div className="last_accident_details_location_Desc">{e.spot}</div>
@@ -226,14 +226,14 @@ export default function AccidentDetailsCard({ id }) {
                                 </div>
                                 <div className="last_accident_details_timesev">
                                     <div className="last_accident_details_location">
-                                        <img src="/src/assets/icon_time.svg" alt="" />
+                                        <img src="./src/assets/icon_time.svg" alt="" />
                                         <div className="last_accident_details_location_details">
                                             <div className="last_accident_details_location_title">Date</div>
                                             <div className="last_accident_details_location_Desc">{e.time}</div>
                                         </div>
                                     </div>
                                     <div className="last_accident_details_location">
-                                        <img src="/src/assets/icon_severity.svg" alt="" />
+                                        <img src="./src/assets/icon_severity.svg" alt="" />
                                         <div className="last_accident_details_location_details">
                                             <div className="last_accident_details_location_title">Severity</div>
                                             <div className="last_accident_details_location_Desc">
@@ -248,16 +248,16 @@ export default function AccidentDetailsCard({ id }) {
                             </div>
                             <div className="last_accident_details_other">
                                 <div onClick={() => assignJob('ambulance')} className="last_accident_details_other_emr">
-                                    <img src="/src/assets/icon_ambulance.svg" alt="Assign Ambulance" />
+                                    <img src="./src/assets/icon_ambulance.svg" alt="Assign Ambulance" />
                                 </div>
                                 <div onClick={() => assignJob('police')} className="last_accident_details_other_emr">
-                                    <img src="/src/assets/icon_police.svg" alt="Assign Police" />
+                                    <img src="./src/assets/icon_police.svg" alt="Assign Police" />
                                 </div>
                                 <div onClick={() => assignJob('fire')} className="last_accident_details_other_emr">
-                                    <img src="/src/assets/icon_fireb.svg" alt="Assign Fire Brigade" />
+                                    <img src="./src/assets/icon_fireb.svg" alt="Assign Fire Brigade" />
                                 </div>
                                 <div onClick={() => navigator.clipboard.writeText(`https://www.google.com/maps?q=${e.location.lat},${e.location.lng}`)} className="last_accident_details_other_emr">
-                                    <img src="/src/assets/icon_copy.svg" alt="Copy Location" />
+                                    <img src="./src/assets/icon_copy.svg" alt="Copy Location" />
                                 </div>
                             </div>
                             <div className="last_accident_details_map">
