@@ -31,7 +31,7 @@ app.use(urlencodedParser);
 //     next();
 // });
 
-const imageDir = path.join(__dirname, 'accidents', 'images');
+const imageDir = './accidents/images');
 
 // Ensure the directory exists
 if (!fs.existsSync(imageDir)) {
