@@ -7,6 +7,8 @@ const accidentRoutes = require('./routes/accidentRoutes');
 const accidentSummaryRoutes = require('./routes/accidentSummaryRoutes');
 const userRoutes = require('./routes/userRoutes');
 const jobRoutes = require('./routes/jobRoutes');
+const fs = require('fs');
+const path = require('path');
 
 
 dotenv.config();
@@ -28,7 +30,15 @@ app.use(urlencodedParser);
 //     console.log(`Payload size: ${req.headers["content-length"]} bytes`);
 //     next();
 // });
-app.use("/images", express.static("./accidents/images"));
+
+const imageDir = path.join(__dirname, 'accidents', 'images');
+
+// Ensure the directory exists
+if (!fs.existsSync(imageDir)) {
+    fs.mkdirSync(imageDir, { recursive: true });
+}
+// app.use("/images", express.static("./accidents/images"));
+app.use("/images", express.static(imageDir));
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected'))
