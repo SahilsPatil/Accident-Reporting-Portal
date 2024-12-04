@@ -8,15 +8,14 @@ const { v4: uuidv4 } = require("uuid");
 const path = require("path");
 const fs = require("fs");
 
-// const imageDir = path.join(__dirname, "accidents/images");
-// const imageDir = "./accidents/images"
-// if (!fs.existsSync(imageDir)) {
-//     fs.mkdirSync(imageDir, { recursive: true });
-// }
-const imageDir = '/tmp/images';
+const imageDir = "./accidents/images"
 if (!fs.existsSync(imageDir)) {
     fs.mkdirSync(imageDir, { recursive: true });
 }
+// const imageDir = '/tmp/images';
+// if (!fs.existsSync(imageDir)) {
+//     fs.mkdirSync(imageDir, { recursive: true });
+// }
 
 // Routes for accident data
 router.get('/', getAllAccidents);              // Get all accidents
