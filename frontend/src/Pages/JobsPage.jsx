@@ -105,6 +105,8 @@ export default function JobsPage() {
 
     const renderJobs = (level) => {
         const filteredJobs = jobs.filter(job => job.type === level);
+        console.log("Jobs:::",jobs);
+        
 
         if (filteredJobs.length === 0) {
             return <div className="dashboard_users_users_users_user dashboard_users_users_users_title">Jobs Not Found</div>;

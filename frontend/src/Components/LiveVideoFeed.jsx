@@ -31,6 +31,7 @@ const LiveVideoFeed = ({ url, title }) => {
                     playing={playing}
                     playbackRate={playbackRate}
                     controls={false}
+                    muted={true}
                     // width="100%"
                     // height="100%"
                 />

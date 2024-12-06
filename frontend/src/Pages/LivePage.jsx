@@ -16,13 +16,13 @@ export default function LivePage() {
                     <div className='dashboard'>
                         <div className="dashboard_lives">
                             <LiveVideoFeed url="/src/assets/accident/videos/video1.mp4" title="Camera 1" />
-                            <LiveVideoFeed url="/src/assets/accident/videos/video1.mp4" title="Camera 2" />
-                            <LiveVideoFeed url="/src/assets/accident/videos/video1.mp4" title="Camera 3" />
-                            <LiveVideoFeed url="/src/assets/accident/videos/video1.mp4" title="Camera 4" />
-                            <LiveVideoFeed url="/src/assets/accident/videos/video1.mp4" title="Camera 5" />
-                            <LiveVideoFeed url="/src/assets/accident/videos/video1.mp4" title="Camera 6" />
-                            <LiveVideoFeed url="/src/assets/accident/videos/video1.mp4" title="Camera 7" />
-                            <LiveVideoFeed url="/src/assets/accident/videos/video1.mp4" title="Camera 8" />
+                            <LiveVideoFeed url="/src/assets/accident/videos/video2.mp4" title="Camera 2" />
+                            <LiveVideoFeed url="/src/assets/accident/videos/video3.mp4" title="Camera 3" />
+                            <LiveVideoFeed url="/src/assets/accident/videos/video4.mp4" title="Camera 4" />
+                            <LiveVideoFeed url="/src/assets/accident/videos/video5.mp4" title="Camera 5" />
+                            <LiveVideoFeed url="/src/assets/accident/videos/video6.mp4" title="Camera 6" />
+                            <LiveVideoFeed url="/src/assets/accident/videos/video7.mp4" title="Camera 7" />
+                            <LiveVideoFeed url="/src/assets/accident/videos/video8.mp4" title="Camera 8" />
                         </div>
                     </div>
                 </div>
