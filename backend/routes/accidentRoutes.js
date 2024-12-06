@@ -24,11 +24,6 @@ router.put('/:id', updateAccidentById);        // Update specific accident by ID
 router.delete('/:id', deleteAccidentById);     // Delete specific accident by ID
 
 router.post('/report', async (req, res) => {
-    // console.log("Payload size:", JSON.stringify(req.body).length, "bytes");
-    // console.log(`Headers: ${JSON.stringify(req.headers)}`);
-    // console.log(`Content-Length: ${req.headers["content-length"] || "N/A"}`);
-    console.log(req);
-    
     try {
         const { spot, location, severity, type, description, images } = req.body;
 
@@ -48,10 +43,18 @@ router.post('/report', async (req, res) => {
         console.log(savedImageNames);
         
 
+        let locationData = location;
+        if (!location || !location.lat || !location.lng) {
+            locationData = {
+                lat: 12.9716,
+                lng: 77.5946,
+            };
+        }
+
         // Create a new accident report
         const newAccident = new Accident({
             spot,
-            location,
+            location: locationData,
             severity,
             vehical: type,
             description,
@@ -62,7 +65,6 @@ router.post('/report', async (req, res) => {
 
         const savedAccident = await newAccident.save();
         res.status(201).json({ message: 'Accident reported successfully', accident: savedAccident });
-        // console.log(res);
 
     } catch (error) {
         console.error(error);

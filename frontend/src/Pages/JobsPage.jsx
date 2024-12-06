@@ -57,6 +57,7 @@ import TopNav from '../Components/TopNav';
 import SideBar from '../Components/SideBar';
 import './../Css/AdminDashboard.css';
 import './../Css/Dashboard.css';
+import url from '../../backend.json';
 
 export default function JobsPage() {
     const [jobs, setJobs] = useState([]);
@@ -69,9 +70,9 @@ export default function JobsPage() {
         // Fetch jobs, accidents, and users data from API
         const fetchData = async () => {
             try {
-                const jobsResponse = await fetch(url.URL+'/api/jobs');
-                const accidentsResponse = await fetch(url.URL+'/api/accidents');
-                const usersResponse = await fetch(url.URL+'/api/users/all');
+                const jobsResponse = await fetch(url.URL + '/api/jobs');
+                const accidentsResponse = await fetch(url.URL + '/api/accidents');
+                const usersResponse = await fetch(url.URL + '/api/users/all');
 
                 if (!jobsResponse.ok || !accidentsResponse.ok || !usersResponse.ok) {
                     throw new Error('Failed to fetch data');
@@ -87,8 +88,6 @@ export default function JobsPage() {
                 // console.log(jobs)
             } catch (error) {
                 setError(error.message);
-            } finally {
-                setLoading(false);
             }
         };
         fetchData();
@@ -116,23 +115,89 @@ export default function JobsPage() {
             const user = getUserDetails(job.assignedUserId);
 
             return (
-                <div key={job._id.$oid} className="dashboard_users_users_users_user">
-                    <div className="job_details">
+                <div key={job._id.$oid} className='emergencyJobs'>
+                    {/* <div className="mid_accidents_views_accidents_accident_column job_details">
                         <div><strong>Accident ID:</strong> {job.accidentId._id}</div>
                         <div><strong>Location:</strong> {job.accidentId.spot}</div>
-                        <div><strong>Assigned to:</strong> {job.assignedUserId.firstName} {job.assignedUserId.lastName}</div>
+                        <div><strong>Assigned to:</strong> {job.assignedUserId.firstName || 'Unknown'}</div>
                         <div><strong>Description:</strong> {job.description}</div>
                         <div><strong>Status:</strong> {job.status}</div>
+                    </div> */}
+                    <div class="last_accident_details" style={{width:"50%"}}>
+                        <div class="last_accident_details_location">
+                            <img src="./src/assets/icon_location.svg" alt="" />
+                            <div class="last_accident_details_location_details">
+                                <div class="last_accident_details_location_title">Location</div>
+                                <div class="last_accident_details_location_Desc">{job.accidentId.spot}</div>
+                            </div>
+                        </div>
+                        <div class="last_accident_details_timesev">
+                            <div class="last_accident_details_location">
+                                <img src="./src/assets/icon_time.svg" alt="" />
+                                <div class="last_accident_details_location_details">
+                                    <div class="last_accident_details_location_title">
+                                        Date
+                                    </div>
+                                    <div class="last_accident_details_location_Desc">
+                                        {job.accidentId.time}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="last_accident_details_location">
+                                <img src="./src/assets/icon_severity.svg" alt="" />
+                                <div class="last_accident_details_location_details">
+                                    <div class="last_accident_details_location_title">
+                                        Severity
+                                    </div>
+                                    <div class="last_accident_details_location_Desc">
+                                        <select name="severity" id="severity" value={job.accidentId.severity}>
+                                            <option value="High">Medium</option>
+                                            <option value="Low">Low</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="last_accident_details_timesev">
+                            <div class="last_accident_details_location">
+                                <img src="./src/assets/icon_users.svg" alt="" />
+                                <div class="last_accident_details_location_details">
+                                    <div class="last_accident_details_location_title">
+                                        Assigned to
+                                    </div>
+                                    <div class="last_accident_details_location_Desc">
+                                        {job.assignedUserId.firstName || 'Unknown'}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="last_accident_details_location">
+                                <img src="./src/assets/icon_report.svg" alt="" />
+                                <div class="last_accident_details_location_details">
+                                    <div class="last_accident_details_location_title">
+                                        Status
+                                    </div>
+                                    <div class="last_accident_details_location_Desc">
+                                        <select name="severity" id="severity" value={job.status}>
+                                            <option value="Open">Open</option>
+                                            <option value="Resolved">Resolved</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div className="job_actions">
+                        {/* <div className='emergencyJobs_buttons' onClick={() => toggleJobStatus(job._id, job.status, job.accidentId._id)}>
+                            {job.status === 'Open' ? 'Mark as Resolved' : 'Mark as Open'}
+                        </div> */}
                         {job.accidentId.location && (
                             <>
-                                <div className='mid_accidents_views_map'
+                                <div className='emergencyJobs_buttons'
                                     onClick={() => navigator.clipboard.writeText(`https://www.google.com/maps?q=${job.accidentId.location.lat},${job.accidentId.location.lng}`)}
                                 >
                                     Copy Location Link
                                 </div>
-                                <div className='mid_accidents_views_map'
+                                <div className='emergencyJobs_buttons'
                                     onClick={() => window.open(`https://www.google.com/maps?q=${job.accidentId.location.lat},${job.accidentId.location.lng}`, '_blank')}
                                 >
                                     Open in Google Maps
@@ -145,9 +210,6 @@ export default function JobsPage() {
         });
     };
 
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
-
     return (
         <div className='dash'>
             <div className="dash_rows">
@@ -156,19 +218,19 @@ export default function JobsPage() {
                     <TopNav title={"Assigned Jobs"} />
                     <div className='usermanagement'>
                         <div className="dashboard_users">
-                            <div style={{ borderBottom: "1px solid #313245", width: "95%" }} className="dashboard_users_users">
+                            <div style={{  width: "95%" }} className="dashboard_users_users">
                                 <div className="dashboard_users_users_title">Police Level</div>
                                 <div className="dashboard_users_users_users">
                                     {renderJobs('police')}
                                 </div>
                             </div>
-                            <div style={{ borderBottom: "1px solid #313245", width: "95%" }} className="dashboard_users_users">
+                            <div style={{  width: "95%" }} className="dashboard_users_users">
                                 <div className="dashboard_users_users_title">Fire Level</div>
                                 <div className="dashboard_users_users_users">
                                     {renderJobs('fire')}
                                 </div>
                             </div>
-                            <div style={{ borderBottom: "1px solid #313245", width: "95%" }} className="dashboard_users_users">
+                            <div style={{  width: "95%" }} className="dashboard_users_users">
                                 <div className="dashboard_users_users_title">Ambulance Level</div>
                                 <div className="dashboard_users_users_users">
                                     {renderJobs('ambulance')}

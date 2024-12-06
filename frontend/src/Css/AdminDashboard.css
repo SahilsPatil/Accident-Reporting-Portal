@@ -1,5 +1,3 @@
-
-
 .dash {
     background-color: #1B1C31;
     height: 100vh;
@@ -317,13 +315,15 @@
     margin-right: 15px;
     cursor: pointer;
 }
-.top_other_search{
+
+.top_other_search {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
-.top_other_search input{
+
+.top_other_search input {
     width: 400px;
     padding: 10px 15px;
     border-radius: 7px;
@@ -334,7 +334,8 @@
     font-family: THICCCBOI;
     font-weight: bold;
 }
-.top_other_search span{
+
+.top_other_search span {
     color: #B0BCD0;
     font-size: 14px;
     font-weight: bold;
@@ -343,18 +344,22 @@
     margin-right: 20px;
     padding: 0px 3px;
 }
-.top_other_profile,.top_other_notification{
+
+.top_other_profile,
+.top_other_notification {
     position: relative;
 }
-.top_other_notification_pop{
+
+.top_other_notification_pop {
     width: 150px !important;
 }
-.top_other_profile_pop{
+
+.top_other_profile_pop {
     position: absolute;
     /* padding: 7px 13px; */
     width: auto;
     margin-top: 5px;
-    background-color:#2B2C45;
+    background-color: #2B2C45;
     color: #B0BCD0;
     font-family: THICCCBOI;
     font-size: 15px;
@@ -362,12 +367,14 @@
     transition: box-shadow 0.3s ease, transform 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
 }
-.top_other_profile_pop_items_item{
+
+.top_other_profile_pop_items_item {
     padding: 7px 13px;
     transition: 0.2s;
 
 }
-.top_other_profile_pop_items_item:hover{
+
+.top_other_profile_pop_items_item:hover {
     background-color: #1B1C31;
     cursor: pointer;
     transition: 0.2s;
@@ -492,7 +499,8 @@
     transition: box-shadow 0.3s ease, transform 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
 }
-.last_accident_details_other_emr:hover{
+
+.last_accident_details_other_emr:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 12px 24px rgba(0, 0, 0, 0.2);
 
@@ -505,11 +513,12 @@
     margin: 0;
 }
 
-.last_accident_details_status{
+.last_accident_details_status {
     position: absolute;
     width: 10px;
 }
-.last_accident_details_status_open{
+
+.last_accident_details_status_open {
     background-color: #F9896B;
     width: 10px;
     height: 10px;
@@ -519,7 +528,8 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
 
 }
-.last_accident_details_status_closed{
+
+.last_accident_details_status_closed {
     background-color: #1B1C31;
     width: 10px;
     height: 10px;
@@ -532,7 +542,8 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
 
 }
-.last_accident_details_status_line{
+
+.last_accident_details_status_line {
     width: 4px;
     background-color: #1B1C31;
     height: 80px;
@@ -542,7 +553,8 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
 
 }
-.last_accident_details_status_line_line{
+
+.last_accident_details_status_line_line {
     width: 4px;
     background-color: #F9896B;
     height: 30px;
@@ -552,16 +564,18 @@
 
     box-shadow: 0.5px 0.5px 30px #F9896B;
 }
-.last_accident_details_status_line_line:hover{
+
+.last_accident_details_status_line_line:hover {
     height: 80px;
     transition: .5s;
 }
-.last_accident_details_map{
+
+.last_accident_details_map {
     width: 100%;
 }
 
 
-.accidentmap{
+.accidentmap {
     overflow: hidden;
     width: 100%;
     height: 650px;
@@ -573,13 +587,14 @@
 
 
 
-.mid_accidents_views_filters{
+.mid_accidents_views_filters {
     margin-top: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 }
+
 .mid_accidents_views_filters_filter select {
     width: auto;
     outline: none;
@@ -592,8 +607,49 @@
     /* padding: 10px 15px; */
     /* border-radius: 7px; */
 }
+
 .mid_accidents_views_filters_filter option {
     background-color: #1B1C31;
     border: none;
     outline: none;
+}
+
+
+
+
+
+
+.emergencyJobs {
+    background-color: #2B2C45;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    padding: 20px 30px;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+
+.emergencyJobs_buttons {
+    background-color: #1B1C31;
+    padding: 10px 15px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    cursor: pointer;
+    color: white;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+.emergencyJobs_buttons:hover{
+    background-color: #F9896B;
+    color: white;
 }
